@@ -26,19 +26,11 @@ app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "home.html"));
 });
 
-<<<<<<< HEAD
-app.get("/viewTables", function(req, res) {
-  res.sendFile(path.join(__dirname, "tables.html"));
-});
-
-app.get("/reserve", function(req, res) {
-=======
 app.get("/tables", function(req, res) {
   res.sendFile(path.join(__dirname, "tables.html"));
 });
 
 app.get("/create", function(req, res) {
->>>>>>> 6330478311b93d87904dc7c0dd2a66ce09c1b059
   res.sendFile(path.join(__dirname, "create.html"));
 });
 
