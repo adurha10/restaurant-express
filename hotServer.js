@@ -44,6 +44,11 @@ app.post("/create", function(req, res) {
   newTable.id = req.body.id;
   newTable.email = req.body.email;
   newTable.waitList = tables.length + 1;
+  if (tables.length<6) {
+    newTable.hasTable = true;
+  } else {
+    newtable.hasTable = false;
+  }
   tables.push(newTable);
   fs.writeFileSync("tables.json", JSON.stringify(tables), "utf8");
   res.json(newTable);
