@@ -11,7 +11,7 @@ var app = express();
 var PORT = process.env.PORT || 3000; // port was changed from var PORT = 3000
 
 // Data for tables
-var tablesArr = [];
+
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
@@ -30,6 +30,10 @@ app.get("/tables", function(req, res) {
   res.sendFile(path.join(__dirname, "tables.html"));
 });
 
+app.get("/api/tables", function(req, res){
+  res.sendfile("tables.json");
+});
+
 app.get("/create", function(req, res) {
   res.sendFile(path.join(__dirname, "create.html"));
 });
@@ -37,7 +41,7 @@ app.get("/create", function(req, res) {
 
 // // Create New Characters - takes in JSON input
 app.post("/create", function(req, res) {
-  var tables = JSON.parse(fs.readFileSync("tables.json", "utf8"))
+  var tables = JSON.parse(fs.readFileSync("tables.json", "utf8"));
   var newTable = req.body;
   newTable.name = req.body.name.replace(/\s+/g, "").toLowerCase();
   newTable.phone = req.body.phone;
