@@ -19,15 +19,15 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Basic route that sends the user first to the AJAX Page
 app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "view.html"));
+  res.sendFile(path.join(__dirname, "home.html"));
 });
 
 app.get("/viewTables", function(req, res) {
-  res.sendFile(path.join(__dirname, "viewTables.html"));
+  res.sendFile(path.join(__dirname, "tables.html"));
 });
 
 app.get("/reserve", function(req, res) {
-  res.sendFile(path.join(__dirname, "reserve.html"));
+  res.sendFile(path.join(__dirname, "create.html"));
 });
 
 
