@@ -26,6 +26,25 @@
 			</table>
 
 		</div>
+
+		<script type="text/javascript">
+			$("#submit").on("click", function() {
+				var newtable = req.body;
+	
+				newTable.name = newTable.name.replace(/\s+/g, "").toLowerCase();
+	
+				$.get("/api/" + newTable, function(data) {
+				console.log(data);
+				if (data) {
+					$("#name").text(newTable.name);
+					$("#email").text(newTable.email);
+					$("#phone").text(newTable.phone);
+					$("#uniqueID").text(newTable.id);
+			}
+		  });
+		});
+
+	  </script>
 		
 	</body>
 	
